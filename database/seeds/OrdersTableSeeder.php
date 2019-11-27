@@ -11,6 +11,20 @@ class OrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Models\Order::class,50)->create()->each(function($order)
+        {
+        	factory(App\Models\OrderItem::class,mt_rand(1,7))
+        		->create([
+        			'order_id' => $order->id
+        		])
+        		->each(function ($item) use(&$order) 
+        	{
+        		$order->total_amount += (
+        			(int)$item->quantity * $item->product->price
+        		);
+        	});
+
+        	$order->save();
+        });
     }
 }

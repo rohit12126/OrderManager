@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Enums\OrderStatus;
 use Illuminate\Database\Migrations\Migration;
@@ -18,8 +18,9 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->string('invoice_number');
-            $table->float('total_amount',8,2);
-            $table->enum('status',OrderStatus::getValues());
+            $table->float('total_amount',8,2)->default('0.0');
+            $table->enum('status',OrderStatus::getValues())
+                  ->default(OrderStatus::newOrder);
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
