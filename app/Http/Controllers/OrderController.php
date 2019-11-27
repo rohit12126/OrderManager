@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use App\DataTables\OrderDataTable;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,17 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('orders');
+    }
+
+    /**
+     * Get the datatable listing of the resource.
+     * @param App\DataTables\OrderDataTable $datatable
+     * @return App\DataTables\OrderDataTable ajax response
+     */
+    public function datatables(OrderDataTable $datatable)
+    {
+        return $datatable->ajax();
     }
 
     /**

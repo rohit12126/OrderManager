@@ -18,3 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('customers')->group(function () {
+	Route::get('/','CustomerController@index')->name('customers');
+	Route::post('/datatables','CustomerController@datatables')->name('customers.datatables');
+});
+
+Route::prefix('products')->group(function () {
+	Route::get('/','ProductController@index')->name('products');
+	Route::post('/datatables','ProductController@datatables')->name('products.datatables');
+});
+
+Route::prefix('orders')->group(function () {
+	Route::get('/','OrderController@index')->name('orders');
+	Route::post('/datatables','OrderController@datatables')->name('orders.datatables');
+});

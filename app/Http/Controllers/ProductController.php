@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\DataTables\ProductDataTable;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('products');
+    }
+
+    /**
+     * Get the datatable listing of the resource.
+     * @param App\DataTables\ProductDataTable $datatable
+     * @return App\DataTables\ProductDataTable ajax response
+     */
+    public function datatables(ProductDataTable $datatable)
+    {
+        return $datatable->ajax();
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use App\DataTables\CustomerDataTable;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,17 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return view('customers');
+    }
+
+    /**
+     * Get the datatable listing of the resource.
+     * @param App\DataTables\CustomerDataTable $datatable
+     * @return App\DataTables\CustomerDataTable ajax response
+     */
+    public function datatables(CustomerDataTable $datatable)
+    {
+        return $datatable->ajax();
     }
 
     /**
