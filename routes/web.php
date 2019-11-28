@@ -32,4 +32,7 @@ Route::prefix('products')->group(function () {
 Route::prefix('orders')->group(function () {
 	Route::get('/','OrderController@index')->name('orders');
 	Route::post('/datatables','OrderController@datatables')->name('orders.datatables');
+
 });
+
+Route::get('order/{order}/items','OrderItemController@index')->name('order.items');

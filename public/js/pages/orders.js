@@ -122,14 +122,17 @@ $(document).ready(function () {
       searchable: false
     }, {
       data: 'created_at',
+      visible: false,
       searchable: false
     }, {
       data: 'customer',
+      visible: false,
       orderable: false,
       searchable: false,
       name: 'customer.id'
     }, {
       data: 'id',
+      visible: false,
       orderable: false,
       searchable: false
     }]
@@ -173,8 +176,7 @@ var initOrderByFilter = function initOrderByFilter() {
 var orderDetails = function orderDetails() {
   $('.datatable tbody').on('click', 'tr', function () {
     var data = dbtable.row(this).data();
-    console.log(data);
-    alert('Customer id : ' + data[4] + "  :: ORDER ID" + data[5]);
+    window.open('/order/' + data.id + '/items');
   });
 };
 

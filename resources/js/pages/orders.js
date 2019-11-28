@@ -63,6 +63,6 @@ var initOrderByFilter = function(){
 var orderDetails = function(){
 	$('.datatable tbody').on('click', 'tr', function () {
         var data = dbtable.row( this ).data();
-       	
+       	window.open('/order/'+data.id+'/items');
     } );
 }
