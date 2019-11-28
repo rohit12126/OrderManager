@@ -32,13 +32,16 @@ class ScopeBouncer
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$identity,$entity)
     {
         // Here you may use whatever mechanism you use in your app
         // to determine the current tenant. To demonstrate, the
         // $tenantId is set here from the user's account_id.
 
-        $this->bouncer->scope()->to(Auth::user()->id);
+        //dd($entity);
+
+        if(!$this->bouncer->can($identity,$entity))
+            return back();
 
         return $next($request);
     }

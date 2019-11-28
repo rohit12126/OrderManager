@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,10 @@ class OrderItemController extends Controller
     public function index(Order $order)
     {
         $order->load('orderItems.product')->load('customer');
+
+        activity()->performedOn($order)
+                ->causedBy(Auth::user())
+                ->log(Auth::user()->name." processed the order: ".$order->id);
         
         return view('order_items',compact('order'));
     }

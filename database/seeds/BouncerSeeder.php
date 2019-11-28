@@ -12,10 +12,10 @@ class BouncerSeeder extends Seeder
     public function run()
     {
         \Bouncer::allow('administrator')->everything();
-        \Bouncer::allow('user-manager')->toManage(App\User::class);
-        \Bouncer::allow('shop-manager')->toManage(App\Models\Product::class);
-        \Bouncer::allow('shop-manager')->toManage(App\Models\Order::class);
-        \Bouncer::allow('shop-manager')->toManage(App\Models\OrderItem::class);
+        \Bouncer::allow('user-manager')->to('view',App\Models\Customer::class);
+        \Bouncer::allow('shop-manager')->to('view',App\Models\Product::class);
+        \Bouncer::allow('shop-manager')->to('view',App\Models\Order::class);
+        \Bouncer::allow('shop-manager')->to('view',App\Models\OrderItem::class);
      	
     }
 }

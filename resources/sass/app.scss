@@ -10,3 +10,9 @@
 
 @import '~datatables.net-bs4';
 @import '~datatables.net-responsive-bs4';
+
+div.dataTables_wrapper {
+	div.dataTables_filter{
+		text-align:left
+	}
+}

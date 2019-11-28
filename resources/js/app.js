@@ -20,5 +20,7 @@ window.initDatatable = function (options){
 	}
 
 	dbtable = $('.datatable').DataTable($.extend({}, tableOptions, options));	
+	$('.dataTables_filter').parent().removeClass('col-md-6').addClass('col-md-12')
+	$('.dataTables_paginate').parent().removeClass('col-md-7').addClass('col-md-12');
 }
 
