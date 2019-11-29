@@ -1,13 +1,12 @@
 <?php 
-use Route;
 use Illuminate\Support\Str;
 
-if(! function_exists('is_current'))
+if(! function_exists('active'))
 {
 	
 	function active($route)
 	{
-		if(Str::is($route,Route::current()->getName())){
+		if(Str::is($route,\Route::current()->getName())){
 			return 'active';
 		}
 		return '';
