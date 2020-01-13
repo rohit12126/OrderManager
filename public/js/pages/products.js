@@ -116,6 +116,18 @@ $(document).ready(function () {
       data: 'in_stock',
       orderable: false,
       searchable: false
+    }, {
+      "render": function render(data, type, row) {
+        html = '<div class="btn-group">';
+        html += editButton(route('products.edit', {
+          product: row['id']
+        }));
+        html += deleteButton(route('products.delete', {
+          product: row['id']
+        }));
+        html += "</div>";
+        return html;
+      }
     }]
   });
   initStockFilter();

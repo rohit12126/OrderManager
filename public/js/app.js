@@ -53977,6 +53977,26 @@ __webpack_require__(/*! datatables.net-responsive-bs4 */ "./node_modules/datatab
 
 window.dbtable = '';
 
+window.editButton = function (route) {
+  var container = $('<div/>');
+  var button = $('<a />', {
+    href: route,
+    html: '<i class="fa fa-pencil"></i>',
+    "class": 'btn btn-primary'
+  }).appendTo(container);
+  return container.html();
+};
+
+window.deleteButton = function (route) {
+  var container = $('<div/>');
+  var button = $('<a />', {
+    href: route,
+    html: '<i class="fa fa-trash"></i>',
+    "class": 'btn btn-danger'
+  }).appendTo(container);
+  return container.html();
+};
+
 window.initDatatable = function (options) {
   var tableOptions = {
     processing: true,

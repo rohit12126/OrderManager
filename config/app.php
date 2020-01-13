@@ -169,6 +169,8 @@ return [
         Yajra\DataTables\ButtonsServiceProvider::class,
         Silber\Bouncer\BouncerServiceProvider::class,
         BenSampo\Enum\EnumServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

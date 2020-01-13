@@ -16,8 +16,11 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -107,9 +110,16 @@
         </nav>
 
         <main class="py-4">
+
+            @include('partials.alerts')
+
             @yield('content')
         </main>
     </div>
+
+    @stack('modals')
+
+    @routes
 
     @stack('js')
 </body>

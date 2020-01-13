@@ -15,7 +15,19 @@ $(document).ready(function (){
 		columns: [
 			{data: 'name'},
 			{data: 'price',searchable: false},
-			{data: 'in_stock', orderable : false, searchable: false}
+			{data: 'in_stock', orderable : false, searchable: false},
+			{
+				"render": function ( data, type, row ) {
+					html = '<div class="btn-group">';
+
+					html += editButton(route('products.edit',{product:row['id']}));
+
+					html += deleteButton(route('products.delete',{product:row['id']}))
+
+					html +="</div>";
+                    return html;
+                },
+			}
 		]
 	});
 	

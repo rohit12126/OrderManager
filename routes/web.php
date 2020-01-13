@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function(){
 	],function () {
 		Route::get('/','CustomerController@index')->name('customers');
 		Route::post('/datatables','CustomerController@datatables')->name('customers.datatables');
+		Route::post('/add','CustomerController@store')->name('customers.add');
 	});	
 	
 
@@ -36,6 +37,10 @@ Route::middleware(['auth'])->group(function(){
 		],function () {
 		Route::get('/','ProductController@index')->name('products');
 		Route::post('/datatables','ProductController@datatables')->name('products.datatables');
+		Route::post('/add','ProductController@store')->name('products.add');
+		Route::get('/edit/{product}','ProductController@edit')->name('products.edit');
+		Route::post('/update/{product}','ProductController@update')->name('products.update');
+		Route::get('/delete/{product}','ProductController@destroy')->name('products.delete');
 	});
 
 	Route::middleware('can:view,App\Models\Order')->group(function(){

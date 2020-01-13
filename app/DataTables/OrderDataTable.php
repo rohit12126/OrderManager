@@ -8,9 +8,11 @@ use Yajra\DataTables\Services\DataTable;
 class OrderDataTable extends DataTable
 {
 
+    //Order By custom values
     protected $orderByValues = [
         'latest','oldest'
     ];
+    
     /**
      * Build DataTable class.
      *

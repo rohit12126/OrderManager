@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Customers</div>
+                <div class="card-header">
+                    Customers
+                </div>
 
                 <div class="card-body">
                 	<table class="table table-striped datatable" data-url="{{route('customers.datatables')}}">
@@ -25,6 +27,11 @@
 </div>
 @stop
 
+@push('modals')
+    
+    @include('customers.add')
+    
+@endpush
 
 @push('js')
 

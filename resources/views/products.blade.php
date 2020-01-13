@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Products</div>
+                <div class="card-header">
+                    Products
+                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#add-product">
+                      Add
+                    </button>
+                </div>
 
                 <div class="card-body">
                 	<table class="table table-striped datatable" data-url="{{route('products.datatables')}}">
@@ -14,6 +19,7 @@
                 				<th>Name</th>
                 				<th>Price</th>
                 				<th>In Stock</th>
+                                <th>Actions</th>
                 			</tr>
                 		</thead>
                 		<tbody></tbody>
@@ -24,6 +30,12 @@
     </div>
 </div>
 @stop
+
+@push('modals')
+    
+    @include('products.add')
+    
+@endpush
 
 @push('js')
 
