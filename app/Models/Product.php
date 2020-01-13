@@ -27,6 +27,7 @@ class Product extends Model
     	return $query->where('in_stock',0);
     }
 
+    // relation function to get the count of entries having orders
     function hasOrders(){
         return $this->hasMany(OrderItem::class,'product_id')->join('orders as o','o.id','=','order_items.order_id')->where('o.status',OrderStatus::newOrder)->count();
     }

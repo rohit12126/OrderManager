@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Products
-                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#add-product">
+                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#add-product" title="Add Product">
                       Add
                     </button>
                 </div>

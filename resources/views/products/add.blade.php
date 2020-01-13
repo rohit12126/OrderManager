@@ -8,31 +8,35 @@ Add Product  @endpush
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">  
-        	<form action="{{route('products.add')}}" method="POST" id="add-form">
+        	<form action="{{route('products.add')}}" method="POST" id="add-form" data-toggle="validator" role="form">
                 @csrf
             	<div class="form-group">
-            		<label>Name</label>
-            		<input type="text" name="name" class="form-control" value="@">
+            		<label class="control-label">Name</label>
+            		<input type="text" name="name" class="form-control" value="" data-toggle="tooltip" title="Product Name" required>
+                    <div class="help-block with-errors"></div>
             	</div>
             	<div class="form-group">
-            		<label>Price</label>
-            		<input type="text" name="price" class="form-control">
+            		<label class="control-label">Price</label>
+            		<input type="text" name="price" class="form-control" data-toggle="tooltip" title="Product price" required>
+                    <div class="help-block with-errors"></div>
             	</div>
             	<div class="form-group">
+                    <label>Stock Status</label>
+                    <br>
 	            	<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="in_stock" value="1" id="in_stock_1" checked="checked">
+					  <input class="form-check-input" type="radio" name="in_stock" value="1" id="in_stock_1" checked="checked" data-toggle="tooltip" title="Product is in stock">
 					  <label class="form-check-label" for="in_stock_1">
 					    In Stock
 					  </label>
 					</div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="in_stock" value="0" id="in_stock_0">
+                      <input class="form-check-input" type="radio" name="in_stock" value="0" id="in_stock_0" data-toggle="tooltip" title="Product is out of stock">
                       <label class="form-check-label" for="in_stock_0">
                         Out Of Stock
                       </label>
                     </div>
 				</div>
-            	<button class="btn btn-primary float-right">Save</button>
+            	<button type="submit" class="btn btn-primary float-right">Save</button>
         	</form>	
         </div>
     </div>

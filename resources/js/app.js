@@ -3,10 +3,11 @@ require( 'datatables.net-bs4' );
 require( 'datatables.net-responsive-bs4' );
 
 window.dbtable = '';
-window.editButton = function(route){
+window.editButton = function(route,tooltip){
 	var container = $('<div/>');
 	var button = $('<a />',{
 		href:route,
+		title:tooltip,
 		html:'<i class="fa fa-pencil"></i>',
 		class:'btn btn-primary',
 	}).appendTo(container);
@@ -14,10 +15,11 @@ window.editButton = function(route){
 	return container.html();
 }
 
-window.deleteButton = function(route){
+window.deleteButton = function(route,tooltip){
 	var container = $('<div/>');
 	var button = $('<a />',{
 		href:route,
+		title:tooltip,
 		html:'<i class="fa fa-trash"></i>',
 		class:'btn btn-danger',
 	}).appendTo(container);
