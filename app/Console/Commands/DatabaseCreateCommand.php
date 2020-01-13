@@ -34,7 +34,7 @@ class DatabaseCreateCommand extends Command
      */
     public function handle()
     {
-        $database = env('DB_DATABASE', false);
+        $database = $this->laravel->config['database']['connections']['mysql']['database'];
 
         if (! $database) {
             $this->info('Skipping creation of database as env(DB_DATABASE) is empty');
@@ -42,13 +42,18 @@ class DatabaseCreateCommand extends Command
         }
 
         try {
-            $pdo = $this->getPDOConnection(env('DB_HOST'), env('DB_PORT'), env('DB_USERNAME'), env('DB_PASSWORD'));
+            $pdo = $this->getPDOConnection(
+                $this->laravel->config['database']['connections']['mysql']['host'], 
+                $this->laravel->config['database']['connections']['mysql']['port'], 
+                $this->laravel->config['database']['connections']['mysql']['username'], 
+                $this->laravel->config['database']['connections']['mysql']['password']
+            );
 
-            $pdo->exec(sprintf(
+            echo $pdo->exec(sprintf(
                 'CREATE DATABASE IF NOT EXISTS %s CHARACTER SET %s COLLATE %s;',
                 $database,
-                env('DB_CHARSET'),
-                env('DB_COLLATION')
+                $this->laravel->config['database']['connections']['mysql']['charset'],
+                $this->laravel->config['database']['connections']['mysql']['collation']
             ));
 
             $this->info(sprintf('Successfully created %s database', $database));

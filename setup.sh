@@ -8,11 +8,13 @@ else
 		cd $1
 	fi
 
-	composer install
-	npm install
+	#composer install
+	#npm install
 	cp .env.example .env
 	php artisan project:setup 
 	php artisan config:cache
+	php artisan config:cache
+	php artisan db:create
 	php artisan migrate:install 
 	php artisan migrate:fresh
 	php artisan db:seed

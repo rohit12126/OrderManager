@@ -49,7 +49,6 @@ class SetupProject extends Command
         $this->setAppUrl();
         $this->call('key:generate');
         $this->setDBCredentials();
-        $this->call('config:cache');
         $this->info('Setup Done Successfully');
     }
 
